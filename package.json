@@ -1,0 +1,14 @@
+{
+  "name": "ise-model",
+  "version": "0.0.0",
+  "description": "Incremental Shaft Encoder",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "gulp": "~3.8.10"
+  }
+}
