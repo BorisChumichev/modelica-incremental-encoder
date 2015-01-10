@@ -1,8 +1,8 @@
 'use strict';
 
 var gulp = require('gulp')
-  , format = require('util').format
-  , fs = require('fs')
+  , shell = require('gulp-shell')
+  , runSequence = require('run-sequence')
 
 
 gulp.task('move', function() {
@@ -10,10 +10,16 @@ gulp.task('move', function() {
     .pipe(gulp.dest('./build'))
 })
 
+gulp.task('compile', shell.task([
+  'omc main.mos',
+], {cwd: process.cwd() + '/build'}))
+
 gulp.task('watch', function () {
   gulp.watch('./sources/**/*', ['move'])
 })
 
-gulp.task('build', ['move']);
+gulp.task('build', function (cb) {
+  runSequence('move', 'compile', cb)
+});
 
 gulp.task('default', ['build']);
