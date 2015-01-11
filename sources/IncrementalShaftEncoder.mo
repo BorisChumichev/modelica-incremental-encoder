@@ -1,15 +1,16 @@
 model IncrementalShaftEncoder "Incremental Shaft Encoder model"
   //dependencies
   import Modelica.Constants;
+  import Modelica.Blocks.Interfaces;
   //variables
   constant Real pi = Constants.pi;
   parameter Real ppr = 16 "Pulses per revolution (PPR) of the encoder";
   Real pulseTheta "Angular step of the encoder";
   //connectors
-  Modelica.Blocks.Interfaces.RealInput theta "Input angle";
-  Modelica.Blocks.Interfaces.BooleanOutput a;
-  Modelica.Blocks.Interfaces.BooleanOutput b;
-  Modelica.Blocks.Interfaces.BooleanOutput z;
+  Interfaces.RealInput theta "Input angle";
+  Interfaces.BooleanOutput a;
+  Interfaces.BooleanOutput b;
+  Interfaces.BooleanOutput z;
 equation
   pulseTheta = (2*pi)/(ppr*4);
   a = mod(theta, pulseTheta) >= 0 and mod(theta, pulseTheta) <= pulseTheta/2;
