@@ -1,2 +1,2 @@
-*.mo linguist-language=Modelica
+sources/*.mo linguist-language=Modelica
 *.mo text
