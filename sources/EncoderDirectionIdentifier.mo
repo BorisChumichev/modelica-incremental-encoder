@@ -5,7 +5,7 @@ class EncoderDirectionIdentifier "Encoder's rotation direction identifier model"
   Interfaces.BooleanInput a "Channel A of the encoder";
   Interfaces.BooleanInput b "Channel B of the encoder";
   //outputs
-  Interfaces.BooleanOutput q "Rotation direction flag (1 for CCW and 0 for CW)";
+  Interfaces.BooleanOutput q "Rotation direction flag (true for CCW and false for CW)";
 equation
   q = if edge(b) then a else pre(q); 
 end EncoderDirectionIdentifier;
