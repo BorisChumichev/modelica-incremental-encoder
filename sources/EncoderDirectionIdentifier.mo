@@ -1,6 +1,7 @@
 class EncoderDirectionIdentifier "Encoder's rotation direction identifier model"
   //dependencies
   import Modelica.Blocks.Interfaces;
+  import Modelica.Utilities.Streams.print;
   //variables
   Boolean eccw "Counterclockwise rotation event";
   Boolean ecw "Clockwise rotation event";
@@ -19,4 +20,10 @@ equation
     or not b and pre(b) and not pre(a)
     or pre(b) and pre(a) and not a;
   q = eccw or not ecw and pre(q);
+  if (q == true) and (pre(q) == false) then
+    print("\n");
+    print(String(time));
+    print("Ecw = " + String(ecw) + " ,Eccw = " + String(eccw) + ", Q = " + String(q));
+    print(String(pre(a)) + ", " + String(a) + ", " + String(pre(b)) + ", " + String(b));
+  end if;
 end EncoderDirectionIdentifier;

@@ -13,10 +13,10 @@ class IncrementalShaftEncoder "Incremental Shaft Encoder model"
   Interfaces.BooleanOutput b "Channel B";
   Interfaces.BooleanOutput z "Marker (aka index) sigal Z";
 equation 
-  a = mod(theta, pulseTheta) >= 0 
-    and mod(theta, pulseTheta) <= pulseTheta/2;
-  b = mod(theta, pulseTheta) >= 0 
-    and mod(theta-pulseTheta/4, pulseTheta) <= pulseTheta/2;
-  z = mod(theta, 2*pi) >= 0 
-    and mod(theta, 2*pi) <= pulseTheta;
+  a = mod(theta, pulseTheta) > 0 
+    and mod(theta, pulseTheta) < pulseTheta/2;
+  b = mod(theta, pulseTheta) > 0 
+    and mod(theta-pulseTheta/4, pulseTheta) < pulseTheta/2;
+  z = mod(theta, 2*pi) > 0 
+    and mod(theta, 2*pi) < pulseTheta;
 end IncrementalShaftEncoder;

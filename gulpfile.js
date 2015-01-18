@@ -11,7 +11,7 @@ gulp.task('move', function() {
 })
 
 gulp.task('compile', shell.task([
-  'omc main.mos',
+  'omc main.mos > ../print.txt',
 ], {cwd: process.cwd() + '/build'}))
 
 gulp.task('watch', function () {

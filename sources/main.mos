@@ -3,5 +3,5 @@ loadFile("IncrementalShaftEncoder.mo");
 loadFile("EncoderTrivialDirectionIdentifier.mo");
 loadFile("EncoderDirectionIdentifier.mo");
 loadFile("test.mo");
-simulate(Test, numberOfIntervals = 200000, stopTime = 0.5);
-plot({impact.y, out4});
+simulate(Test, numberOfIntervals = 20000, stopTime = 0.02);
+plot({impact.y, out4, dirId.a, dirId.b});
