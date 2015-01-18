@@ -1,14 +1,15 @@
   model Test "Incremental Shaft Encoder model test"
+      import Modelica.Blocks.Sources;
       IncrementalShaftEncoder encoder;
       EncoderDirectionIdentifier dirId;
-      Real angle;
+      //EncoderTrivialDirectionIdentifier dirId;
+      Sources.ExpSine impact(freqHz=20, damping=12, amplitude=3);
       Boolean out1;
       Boolean out2;
       Boolean out3;
       Boolean out4;
     equation
-      der(angle) = if time < 0.25 then 5 else -5;
-      connect(angle, encoder.theta);
+      connect(impact.y, encoder.theta);
       connect(encoder.a, dirId.a);
       connect(encoder.b, dirId.b);
       connect(out1, encoder.a);
