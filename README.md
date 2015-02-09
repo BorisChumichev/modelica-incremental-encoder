@@ -1,6 +1,7 @@
 #Incremental Shaft Encoder model
 
-Built with [modelica programming language](https://modelica.org/) for [openmodelica](https://www.openmodelica.org/) compiler.
+Built with [modelica programming language](https://modelica.org/).
+Project is on early developmetn stage. Use this code with caution.
 
 #####Setup
 
